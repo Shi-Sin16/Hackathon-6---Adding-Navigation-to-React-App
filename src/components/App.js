@@ -12,24 +12,24 @@ class App extends Component {
         <Link to="/">Home</Link>
 
         <Switch>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-            <Route path="*">No Match</Route>
-          </Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+          <Route path="*">
+            <div>No Match</div>
+          </Route>
+        </Switch>
       </div>
     );
   }
 }
 
-function LocatioDisplay() {
+export function LocatioDisplay() {
   const { pathname } = useLocation();
-  return (
-  <div data-testid="location-display">{ pathname }</div>
-  );
+  return <div data-testid="location-display">{pathname}</div>;
 }
 
 export default App;
