@@ -1,17 +1,35 @@
 import React, { Component, useState } from "react";
 import "../styles/App.css";
-import { Router, Switch } from "react-router-dom";
+import { Route, Switch, Link, useLocation } from "react-router-dom";
 import About from "./About";
 import Home from "./Home";
 class App extends Component {
   render() {
     return (
       <div id="main">
-        <a href="./About">About</a>
-        <a href="./Home">Home</a>
+        <LocatioDisplay />
+        <Link to="/About">About</Link>
+        <Link to="/">Home</Link>
+
+        <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+            <Route path="*">No Match</Route>
+          </Switch>
       </div>
     );
   }
+}
+
+function LocatioDisplay() {
+  const { pathname } = useLocation();
+  return (
+  <div data-testid="location-display">{ pathname }</div>
+  );
 }
 
 export default App;
