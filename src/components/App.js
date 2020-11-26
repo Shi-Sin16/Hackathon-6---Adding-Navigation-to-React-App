@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import "../styles/App.css";
-import { Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import About from "./About";
 import Home from "./Home";
 import LocatioDisplay from "./LocationDisplay";
@@ -9,8 +9,9 @@ class App extends Component {
   render() {
     return (
       <div id="main">
+        <BrowserRouter>
         <LocatioDisplay />
-        <Link to="/About">About</Link>
+        <Link to="/about">About</Link>
         <Link to="/">Home</Link>
 
         <Switch>
@@ -24,6 +25,7 @@ class App extends Component {
             <div>No Match</div>
           </Route>
         </Switch>
+        </BrowserRouter>
       </div>
     );
   }
