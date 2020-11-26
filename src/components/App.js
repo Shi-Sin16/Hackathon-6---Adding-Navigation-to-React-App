@@ -1,8 +1,10 @@
 import React, { Component, useState } from "react";
 import "../styles/App.css";
-import { Route, Switch, Link, useLocation } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 import About from "./About";
 import Home from "./Home";
+import LocatioDisplay from "./LocationDisplay";
+
 class App extends Component {
   render() {
     return (
@@ -25,11 +27,6 @@ class App extends Component {
       </div>
     );
   }
-}
-
-export function LocatioDisplay() {
-  const { pathname } = useLocation();
-  return <div data-testid="location-display">{pathname}</div>;
 }
 
 export default App;
