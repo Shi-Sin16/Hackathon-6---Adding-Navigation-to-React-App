@@ -6,10 +6,10 @@ module.exports = {
   output: {
     path: path.join(__dirname, "/dist"),
     filename: "index_bundle.js",
-    publicPath: "/"
+    publicPath: "/",
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -17,28 +17,28 @@ module.exports = {
         test: /\.js$|\.jsx$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
+          loader: "babel-loader",
+        },
       },
       {
         test: /\.css$/,
         use: [
           {
-            loader: "style-loader"
+            loader: "style-loader",
           },
           {
-            loader: "css-loader"
-          }
-        ]
-      }
-    ]
+            loader: "css-loader",
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
-    })
+      template: "./src/index.html",
+    }),
   ],
   resolve: {
-    extensions: [".js", ".jsx"]
-  }
+    extensions: [".js", ".jsx"],
+  },
 };
